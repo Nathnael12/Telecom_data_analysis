@@ -25,7 +25,7 @@ class DataCleaner:
         df[['bearer_id', 'imsi', 'msisdn/number', 'imei','handset_type']] = df[['bearer_id', 'imsi', 'msisdn/number', 'imei','handset_type']].astype(str)
 
         return df
-        
+
     def remove_whitespace_column(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         remove whitespace from columns
@@ -43,3 +43,27 @@ class DataCleaner:
         totalMising = missingCount.sum()
 
         return round(totalMising / totalCells * 100, 2)
+
+    def get_numerical_columns(self, df: pd.DataFrame) -> list:
+        """
+        get numerical columns
+        """
+        return df.select_dtypes(include=['number']).columns.to_list()
+
+    def get_categorical_columns(self, df: pd.DataFrame) -> list:
+        """
+        get categorical columns
+        """
+        return  df.select_dtypes(include=['object','datetime64[ns]']).columns.to_list()
+
+    def percent_missing_column(self, df: pd.DataFrame, col:str) -> float:
+        """
+        calculate the percentage of missing values for the specified column
+        """
+        try:
+            col_len = len(df[col])
+        except KeyError:
+            print(f"{col} not found")
+        missing_count = df[col].isnull().sum()
+
+        return round(missing_count / col_len * 100, 2)
