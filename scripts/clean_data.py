@@ -25,3 +25,21 @@ class DataCleaner:
         df[['bearer_id', 'imsi', 'msisdn/number', 'imei','handset_type']] = df[['bearer_id', 'imsi', 'msisdn/number', 'imei','handset_type']].astype(str)
 
         return df
+        
+    def remove_whitespace_column(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        remove whitespace from columns
+        """
+        df.columns = [column.replace(' ', '_').lower() for column in df.columns]
+
+        return df
+
+    def percent_missing(self, df: pd.DataFrame) -> float:
+        """
+        calculate the percentage of missing values from dataframe
+        """
+        totalCells = np.product(df.shape)
+        missingCount = df.isnull().sum()
+        totalMising = missingCount.sum()
+
+        return round(totalMising / totalCells * 100, 2)
