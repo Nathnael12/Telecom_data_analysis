@@ -67,3 +67,66 @@ class DataCleaner:
         missing_count = df[col].isnull().sum()
 
         return round(missing_count / col_len * 100, 2)
+    
+    def fill_missing_values_categorical(self, df: pd.DataFrame, method: str) -> pd.DataFrame:
+        """
+        fill missing values with specified method
+        """
+
+        categorical_columns = df.select_dtypes(include=['object','datetime64[ns]']).columns
+
+        if method == "ffill":
+
+            for col in categorical_columns:
+                df[col] = df[col].fillna(method='ffill')
+
+            return df
+
+        elif method == "bfill":
+
+            for col in categorical_columns:
+                df[col] = df[col].fillna(method='bfill')
+
+            return df
+
+        elif method == "mode":
+            
+            for col in categorical_columns:
+                df[col] = df[col].fillna(df[col].mode()[0])
+
+            return df
+        else:
+            print("Method unknown")
+            return df
+
+    def fill_missing_values_numeric(self, df: pd.DataFrame, method: str,columns: list =None) -> pd.DataFrame:
+        """
+        fill missing values with specified method
+        """
+        if(columns==None):
+            numeric_columns = self.get_numerical_columns(df)
+        else:
+            numeric_columns=columns
+
+        if method == "mean":
+            for col in numeric_columns:
+                df[col].fillna(df[col].mean(), inplace=True)
+
+        elif method == "median":
+            for col in numeric_columns:
+                df[col].fillna(df[col].median(), inplace=True)
+        else:
+            print("Method unknown")
+        
+        return df
+
+    def remove_nan_categorical(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        remove columns with nan values for categorical columns
+        """
+
+        categorical_columns = self.get_categorical_columns(df)
+        for col in categorical_columns:
+            df = df[df[col] != 'nan']
+
+        return df
