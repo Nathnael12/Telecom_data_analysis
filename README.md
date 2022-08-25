@@ -27,7 +27,7 @@ The project is divided and implemented by the following phases
 
 ## Installation guide
 ```
-git clone https://github.com/nathnael12/Telecom-Data-Analysis
-cd TeleCom-Data-Analysis
+git clone https://github.com/nathnael12/Telecom_Data_Analysis
+cd TeleCom_Data_Analysis
 pip install -r requirements.txt
 ```
