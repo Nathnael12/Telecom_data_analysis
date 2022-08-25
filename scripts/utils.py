@@ -17,12 +17,12 @@ class Utils:
             print("File not found.")
         return df
 
-    def save_data(self, df: pd.DataFrame, data_path:str) -> None:
+    def save_data(self, df: pd.DataFrame, data_path:str,index:bool = False) -> None:
         """
         Save data to a csv file.
         """
         try:
-            df.to_csv(data_path,index=False)
+            df.to_csv(data_path,index=index)
             print("Data saved successfully!")
         except Exception as e:
             print(f"Saving failed {e}")
