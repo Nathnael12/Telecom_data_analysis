@@ -105,7 +105,7 @@ def DBConnect(dbName=None):
     -------
     tuple
     """
-    conn = mysql.connect(host='localhost', user='root', password='123456@root',
+    conn = mysql.connect(host='localhost', user='root', password='root',
                          database=dbName, buffered=True)
     cur = conn.cursor()
     return conn, cur
