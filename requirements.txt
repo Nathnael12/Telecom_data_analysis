@@ -3,5 +3,7 @@ seaborn
 numpy
 matplotlib
 scikit-learn
-pickle
 kneed
+streamlit
+mysql-connector
+toml
