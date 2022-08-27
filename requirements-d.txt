@@ -1,0 +1,5 @@
+# included the only requirements for the docker file since i wanted it for the dashboard app
+matplotlib==3.5.2
+pandas
+seaborn
+streamlit
