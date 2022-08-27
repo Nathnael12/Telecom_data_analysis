@@ -10,6 +10,11 @@
   - [Approach](#approach)
   - [Installation guide](#installation-guide)
 
+<br>
+
+**You can find the dashboard for this application by the following link**  
+[Dashboard](https://dashboard10ac.herokuapp.com/)
+
 ## Overview
 In this repo we will analyze a certain telecomunication data for a company called TelCo. We will study the growth opportunities through data analysis and make recommendations to a prospective investor who will buy the company. This project is part of 10 Academy's Training Week 1 Challenge. 
 
