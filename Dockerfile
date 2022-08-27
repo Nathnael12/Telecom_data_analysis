@@ -1,16 +1,16 @@
-FROM python:3.7
+FROM python:3.7-slim
 
 WORKDIR /app
 
-COPY requirements.txt ./requirements.txt
+COPY requirements-d.txt ./requirements.txt
 
-RUN pip install -r requiremts.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
 COPY . .
 
-# ENTRYPOINT ["streamlit", "run"]
+ENTRYPOINT ["streamlit", "run"]
 
-# CMD ["dashboard/index.py"]
-CMD streamlit run ./dashboard/index.py
+CMD ["./dashboard/index.py"]
+# CMD streamlit run ./dashboard/index.py

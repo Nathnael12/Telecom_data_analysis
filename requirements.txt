@@ -1,10 +1,9 @@
-# scikit-learn==1.1.2
-# mysql-connector-python==8.0.30
+scikit-learn==1.1.2
+mysql-connector-python==8.0.30
 matplotlib==3.5.2
 pandas
 seaborn
-# numpy
-# kneed==0.8.1
+numpy
+kneed==0.8.1
 streamlit
-# pickle
-# toml
+toml
