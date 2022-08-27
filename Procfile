@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run ./dashboard/index.py
+web: streamlit run ./dashboard/index.py
