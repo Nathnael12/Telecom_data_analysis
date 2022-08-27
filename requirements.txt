@@ -1,9 +1,10 @@
+# scikit-learn==1.1.2
+# mysql-connector-python==8.0.30
+matplotlib==3.5.2
 pandas
 seaborn
-numpy
-matplotlib
-scikit-learn
-kneed
+# numpy
+# kneed==0.8.1
 streamlit
-mysql-connector
-toml
+# pickle
+# toml
